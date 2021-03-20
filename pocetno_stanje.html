@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="HandheldFriendly" content="true">
+    <title>Skladiste građevinskog materijala</title>
+    <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.css">
+	<meta name="author" content="Đuro Belačić">
+    <link rel="stylesheet" href="css/stylePocetna.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Under_construction_icon-yellow.svg/1200px-Under_construction_icon-yellow.svg.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/7310d7edd5.js" crossorigin="anonymous"></script>
+</head>
+<body id="body" onload=	"RefreshStanje()">
+	<div class="container-fluid">
+		<header>
+			<nav class="navbar navbar-expand-xl navbar-dark bg-dark navPocetna">
+				<div class="container">
+			  	<a class="navbar-brand" href="#"></a>
+			  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    		<span class="navbar-toggler-icon"></span>
+			 		 </button>
+			 		 <div class="col-auto">
+			  			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    			<ul class="navbar-nav mr-auto">
+			    				<li> <button type="button" onclick="Odjava()" id="btnOdjava2" class="btn btn-success">Odjava</button> </li>
+			      				<li class="nav-item active"><a onclick="UcitajPocetnu()" class="nav-link" >Početno stanje</a> </li>
+			      				<li class="nav-item"> <a onclick="UcitajUrlIzvjesce()" class="nav-link">Izvješće artikla</a> </li>
+			                 	<li class="nav-item"> <a onclick="UcitajUrlIzdatnice()" class="nav-link" >Kreiranje izdatnice</a></li>
+			                 	<li class="nav-item"> <a onclick="UcitajUrlPrimke()" class="nav-link" >Kreiranje primke</a></li>
+			               </ul>
+			          		<form class="form-inline my-2 my-lg-0">
+			           			<input id="search2" onkeyup="Search2()" class="form-control mr-sm-2" type="search" placeholder="Traži" aria-label="Search">
+			          		</form>
+			         	</div>
+			        </div>	
+			    </div>
+			</nav>
+		</header>
+		<br>
+		<div> <button type="button" id=btnDodajArtikl onclick="ModalDodaj()" class="btn btn-primary"> Dodaj Artikl</button> </div>
+		<br>
+			<div id="tablica-container table-responsive">
+				<table id="tablica-stanje" class="table table-stripped" >
+					<thead>
+						<tr>
+							<th>Šifra artikla</th>
+							<th>Naziv artikla</th>
+							<th>Jedinična mjera</th>
+							<th>Cijena</th>
+							<th>Početno stanje količina</th>
+							<th>Početno stanje iznos</th>
+							<th>Količina ulaz</th>
+							<th>Iznos ulaz</th>
+							<th>Količina izlaz</th>
+							<th>Iznos izlaz</th>
+							<th>Stanje količina </th>
+							<th>Stanje cijena</th>
+							<th>Obriši</th>
+							<th>Uredi</th>
+						</tr>
+					</thead>
+				<tbody>	
+				</tbody>
+		</div>
+	</div>
+		<div id="dodajArtikl" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Dodaj artikl</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="inptSifraArtikla2">Šifra artikla</label>
+						<input type="number" class="form-control" id="inptSifraArtikla2" min="0" onKeyPress="if(this.value.length==4) return false;"/>
+					</div>
+				<div class="form-group">
+					<label for="inptNazivArtikla2">Naziv artikla</label>
+					<input type="text" name="Naziv"class="form-control" id="inptNazivArtikla2"></input>
+				</div>
+				<div class="form-group">
+					<label for="inptCijena2">Cijena</label>
+					<input type="number" name="Cijena" class="form-control" id="inptCijena2" min="0" onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+				<div class="form-group">
+					<label for="inptjdm2">Jedinicna mjera</label>
+					<input type="text" name=""class="form-control" id="inptjdm2"></input>
+				</div>
+				<div class="form-group">
+					<label for="nptPocetnoStanje2">Pocetno stanja</label>
+					<input type="number" name=""class="form-control" id="inptPocetnoStanje2" min="0" onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button id="btnDodaj" type="button" class="btn btn-success" data-dismiss="modal">Dodaj</button>
+					<button id="btnIzadi" type="button" class="btn btn-danger" data-dismiss="modal">Odustani</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="urediArtikl" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:black">Uredi</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+					<label for="inptSifraArtikla">Šifra artikla</label>
+					<input type="text" name="Sifra"class="form-control" min="0" id="inptSifraArtikla"></input>
+				</div>
+				<div class="form-group">
+					<label for="inptNazivArtikla">Naziv artikla</label>
+					<input type="text" name="Naziv"class="form-control" id="inptNazivArtikla" onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+				<div class="form-group">
+					<label for="inptJedinicnaMjera">Jedinična mjera</label>
+					<input type="text" name="JedMjera"class="form-control" id="inptJedinicnaMjera"></input>
+				</div>
+				<div class="form-group">
+					<label for="inptCijena">Cijena</label>
+					<input type="text" name="Cijena" class="form-control" lang="nb" min="0" step="any" id="inptCijena" onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button id="btnUrediArtikl" type="button" class="btn btn-success" data-dismiss="modal">Uredi</button>
+					<button id="btnIzadi2" type="button" class="btn btn-danger" datadismiss="modal">Odustani</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p id="footer"> Copyright &copy; Đuro Belačić &copy; VSMTI gradnja d.o.o. </p>
+	</footer>
+	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+	<script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+	<script src="js/firebase_auth.js"></script>
+	<script src="js/skladiste.js"></script>	
+</body>
+</html>

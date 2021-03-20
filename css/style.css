@@ -1,0 +1,310 @@
+
+body
+{
+	padding-top: 40px;
+    background-image: url(img/login3.jpg) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+/******** nav bar ************/
+.bg-dark
+{
+    background-color: transparent !important;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    /*width: 80%;*/
+}
+.proba
+{
+        margin: 0 0 0 1.6%;
+}
+
+.navPocetna
+{
+        margin: 0 0 0 0.2%;
+}
+
+.navbar-dark .navbar-nav .nav-link
+{
+    font-weight: 700;
+    font-size: 14px;
+    color: red;
+    background-color: #000000;
+    text-transform: uppercase; 
+    border-radius: 20px;
+    opacity: 0.9;
+    text-align: center;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer !important;
+}
+
+.navbar-dark .navbar-nav .nav-item
+{
+    margin: 0 20px;
+}
+
+.navbar-nav > li > a
+.navbar-nav > li > a:focus,
+.navbar-nav > li > a:hover
+{
+    color: #ffffff !important;
+  background-color: red !important;
+  border-radius: 20px;
+}
+
+.navbar-nav > .active
+{
+    background-color: #ffffff !important;
+    border-radius: 20px;
+
+}
+
+#search
+{
+    background-color: #000000;
+    color: white;
+    margin: 0 0 0 20%;
+}
+#search2
+{
+    background-color: #000000;
+    color: white;
+    margin: 0 0 0 20%;
+}
+
+/************* navbar **********************/
+#odaberiArtikl
+{
+    background-color: #000000;
+    color: red;
+    border-radius: 20px;
+}
+
+
+/***** tablica *******/
+tr th
+{
+    color: red !important;
+}
+
+table,tr th, tr td
+{
+    background-color: #000000; 
+  color: white;
+  opacity: 0.9;
+}
+
+
+.btnObrisi
+{
+    color: red !important;
+}
+/******** table ******/
+h3
+{
+    color: white;
+}
+
+h4
+{
+    color: white;
+}
+
+
+
+/*
+Prozor za primke i izdatnice*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background: url('https://i.imgur.com/kk76J5I.jpg') no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 550px;
+  background: rgba(0,0,0,0.8);
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.wrapper2{
+  position:fixed;
+    bottom:0;
+    left:0;
+    margin-bottom: 1px;
+    margin-left : 1px;
+    width: 500px;
+    height: 400px;
+  background: rgba(0,0,0,0.8);
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.wrapper .title h1{
+  color: #c5ecfd;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.contact-form{
+  display: flex;
+}
+
+.input-fields{
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+.input-fields,
+.msg{
+  width: 48%;
+}
+
+.input-fields .input,
+.msg textarea{
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #c5ecfd;
+  padding: 10px;
+  color: #c5ecfd;
+  width: 100%;
+}
+
+.msg textarea{
+  height: 212px;
+}
+
+::-webkit-input-placeholder {
+  color: #c5ecfd;
+}
+
+#DodajIzdPrm{
+    background: #39b7dd;
+    background-color: red;
+    text-align: center;
+    border-color: red !important;
+    /*padding: 10px; */ 
+    /*border-radius: 50px;*/
+    color: #fff;
+    /*cursor: pointer;*/
+    text-transform: uppercase;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+}
+#DodajIzdPrm:hover
+{
+  background-color: #ff5c33;
+}
+/*@media screen and (max-width: 1258px){
+  .contact-form{
+    flex-direction: column;
+  }
+  .msg textarea{
+    height: 80px;
+  }
+  .input-fields,
+  .msg{
+    width: 100%;
+  }
+}*/
+
+/*@media (min-width: 1536px) {
+  body
+  {
+    width: 98%;
+  }
+}*/
+
+/*
+Prozor za primke i izdatnice*/
+
+.btn .btn-default
+{
+    display:inline-block;
+}
+
+
+.input-group 
+{
+    width: 25%;
+}
+
+#btnIzvjesceDodaj
+{
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #000000;
+}
+
+#btnIzvjesceDodaj:hover
+{
+  background-color: red !important;
+}
+
+#refresh-btn2
+{
+    border-radius: 20px;
+    background-color: #000000;
+}
+#refresh-btn2:hover
+{
+  background-color: red !important;
+}
+
+#btnDodaj
+{
+    border-radius: 20px;
+    background-color: #000000;
+}
+#btnIzadi
+{
+    border-radius: 20px;
+}
+
+#btnDodajArtikl
+{
+    border-radius: 20px;
+    background-color: #000000;
+}
+
+#btnDodajArtikl:hover
+{
+  background-color: red !important;
+}
+
+#btnOdjava2
+{
+     background-color: red;
+     border-radius: 20px;
+     margin: 0 0 0 0;
+     border-color: red;
+}
+
+#btnOdjava2:hover
+{
+    background-color: #000000 !important;
+}
+
+

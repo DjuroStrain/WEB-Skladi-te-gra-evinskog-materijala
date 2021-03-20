@@ -1,0 +1,80 @@
+.main-section
+{
+    margin: 0 auto; /*centriranje*/
+    margin-top: 270px;
+    padding: 0; /**/
+}
+.modal-content
+{
+    background-color: #434e5a;
+    opacity: 0.8;
+    padding: 0 18px;
+    border-radius: 10px;
+}
+.user-img img
+{
+    height: 140px;
+    width: 140px;
+    border-radius: 80px;
+}
+.user-img
+{
+    margin-top: -70px;
+    margin-bottom: 45px;
+}
+.form-group
+{
+    margin-bottom: 45px;
+}
+.form-group input
+{
+    height: 42px;
+    border-radius: 5px;
+    margin-bottom: -20px;
+    border: 0;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding-left: 54px;
+}
+.form-group::before
+{
+   font-family: "Font Awesome 5 Free"; 
+   font-weight: 900; 
+   content: "\f007";
+   position: absolute;
+   font-size: 22px;
+   left: 28px;
+   padding-top: 4px;
+   color: #555e60;
+}
+
+.form-group:last-of-type::before
+{
+    content: "\f023";
+}
+.form-group:last-of-type
+{
+    content: "\f06e";
+}
+.form-input button
+{
+    width: 40%;
+    margin:  5px 0 25px;
+
+}
+
+.btnPrijava
+{
+    background-color: #1c6288;
+    font-size: 19px;
+    border-radius: 5px;
+    padding: 7px 14px;
+    border: 1px solid #daf1ff;
+}
+.btnPrijava:hover
+{
+    background-color: #13445e;
+    border: 1px solid #daf1ff;
+}
+.forgo
+/*login*/

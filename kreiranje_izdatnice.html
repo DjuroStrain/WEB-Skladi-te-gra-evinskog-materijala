@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Skladiste građevinskog materijala</title>
+    <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.css">
+	<meta name="author" content="Đuro Belačić">
+    <link rel="stylesheet" href="css/stylePrmIzd.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Under_construction_icon-yellow.svg/1200px-Under_construction_icon-yellow.svg.png">
+</head>
+<body onload="ModalDodajIzdatnicu()">
+<div class="container-fluid">
+		<header>
+		    <nav class="navbar navbar-expand-lg navbar-dark bg-dark proba">
+				<div class="container">
+			  		<a class="navbar-brand" href="#"></a>
+			  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="	#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    		<span class="navbar-toggler-icon"></span>
+			 		 	</button>
+			  			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    			<ul class="navbar-nav mr-auto">
+			    				<li> <button type="button" onclick="Odjava()" id="btnOdjava2" class="btn btn-success">Odjava</button> </li>
+			      				<li class="nav-item"> <a onclick="UcitajPocetnu()" class="nav-link" > Početno stanje </a> </li>
+			      				<li class="nav-item"> <a onclick="UcitajUrlIzvjesce()" class="nav-link" >Izvješće artikla</a> </li>
+			                 	<li class="nav-item active"> <a onclick="UcitajUrlIzdatnice()" class="nav-link" >Kreiranje izdatnice</a></li>
+			                 	<li class="nav-item"> <a onclick="UcitajUrlPrimke()" class="nav-link" >Kreiranje primke </a></li>
+			               </ul>
+			         	</div>
+			    </div>
+			</nav>
+		</header>
+		<br>
+		<button type="button" onclick="ModalDodajIzdatnicu()" class="btn btn-success" data-dismiss="modal"  id="btnDodajIzdatnicu2"> Dodaj Izdatnicu </button>
+			<!-- <div class="wrapper">
+  				<div class="title">  <h3 style="color: white;"> Kreiranje izdatnice </h3> </div>
+  				  <div class="contact-form">
+    				<div class="input-fields">
+      					<input type="number" class="input" id="inptSifraArtikla" placeholder="Šifra artikla" onKeyPress="if(this.value.length==4) return false;">
+      					<input type="number" class="input" id="inptKolicinaIzlaz" placeholder="Količina izlaz" onKeyPress="if(this.value.length==5) return false;">
+      					<button onclick="DodajIzdatnicu()" type="button" class="btn btn-primary" data-dismiss="modal" id="DodajIzdPrm"> Dodaj</button>
+                    </div>
+                   </div>
+                  </div>
+                </div> -->
+	</div>
+</div>
+	<form>
+	<div id="dodajIzdatnicu" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:black">Dodaj izdatnicu</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="inptSifraArtikla">Šifra artikla</label>
+						<input type="number" class="form-control" id="inptSifraArtikla" min="0" onKeyPress="if(this.value.length==4) return false;">
+					</div>
+				<div class="form-group">
+					<label for="inptKolicina">Količina izlaz</label>
+					<input type="number" name=""class="form-control" id="inptKolicinaIzlaz" min="0" onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button id="btnDodajIzdatnicu" type="button" class="btn btn-success" data-dismiss="modal">Dodaj</button>
+					<button id="btnIzadiDodajIzdatnicu" type="button" class="btn btn-danger" datadismiss="modal">Odustani</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	<footer>
+		<p id="footer"> Copyright &copy; Đuro Belačić &copy; VSMTI gradnja d.o.o. </p>
+	</footer>	
+	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+	<script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+	<script src="js/firebase_auth.js"></script>
+	<script src="js/skladiste.js"></script>	
+
+</body>
+</html>

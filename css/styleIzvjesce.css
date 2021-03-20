@@ -1,0 +1,216 @@
+body
+{
+    padding-top: 40px;
+    background-image: url(img/login3.jpg) !important;
+    background-size: cover !important;
+    /*background-repeat: no-repeat !important;*/
+}
+/******** nav bar ************/
+.bg-dark
+{
+    background-color: transparent !important;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    /*width: 80%;*/
+}
+.proba
+{
+        margin: 0 0 0 1.6%;
+}
+
+.navPocetna
+{
+        margin: 0 0 0 0.2%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.navbar-dark .navbar-nav .nav-link
+{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: red;
+    background-color: #000000;
+    text-transform: uppercase; 
+    border-radius: 20px;
+    opacity: 0.9;
+    text-align: center;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer !important;
+}
+
+.navbar-dark .navbar-nav .nav-item
+{
+    margin: 0 20px;
+}
+
+.navbar-nav > li > a
+.navbar-nav > li > a:focus,
+.navbar-nav > li > a:hover
+{
+    color: #ffffff !important;
+  background-color: red !important;
+  border-radius: 20px;
+}
+
+.navbar-nav > .active
+{
+    background-color: #ffffff !important;
+    border-radius: 20px;
+
+}
+
+#search
+{
+    background-color: #000000;
+    color: white;
+    margin: 0 0 0 20%;
+}
+
+/************* navbar **********************/
+#odaberiArtikl
+{
+    background-color: #000000;
+    color: red;
+    border-radius: 20px;
+}
+
+
+/***** tablica *******/
+tr th
+{
+    color: red !important;
+}
+
+table,tr th, tr td
+{
+    background-color: #000000; 
+  color: white;
+  opacity: 0.9;
+}
+
+.input-group 
+{
+    width: 35%;
+}
+
+.btnObrisi
+{
+    color: red !important;
+}
+/******** table ******/
+h3
+{
+    color: white;
+}
+
+h4
+{
+    color: white;
+}
+
+#btnIzvjesceDodaj
+{
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #000000;
+}
+
+#btnIzvjesceDodaj:hover
+{
+  background-color: red !important;
+}
+
+#refresh-btn2
+{
+    border-radius: 20px;
+    background-color: #000000;
+}
+#refresh-btn2:hover
+{
+  background-color: red !important;
+}
+
+#btnDodaj
+{
+    border-radius: 20px;
+    background-color: #000000;
+}
+#btnIzadi
+{
+    border-radius: 20px;
+}
+#btnOdjava2
+{
+     background-color: red;
+     border-radius: 20px;
+     margin: 0 0 0 0;
+     border-color: red;
+}
+
+#btnOdjava2:hover
+{
+    background-color: #000000 !important;
+}
+
+#btnIzadiPrimka
+{
+    border-radius: 20px;
+}
+#btnIzadiIzdatnica
+{
+    border-radius: 20px;
+}
+#btnIzadiPocetna
+{
+    border-radius: 20px;
+}
+
+#btnUrediStanjeIzdatnica
+{
+    border-radius: 20px;
+}
+#btnUrediStanjePrimka
+{
+    border-radius: 20px;
+}
+#btnUrediStanjePocetna
+{
+    border-radius: 20px;
+}
+
+.btnSort
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#btnPrint
+{
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #000000;
+}
+
+footer
+{
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #fff;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 0px;
+  width: 100%;
+  z-index: 999;
+  opacity: 0.8;
+}
+
+#footer
+{
+  margin-top: 15px;
+}

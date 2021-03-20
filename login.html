@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skladiste građevinskog materijala</title>
+    <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.css">
+  <meta name="author" content="Đuro Belačić">
+    <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Under_construction_icon-yellow.svg/1200px-Under_construction_icon-yellow.svg.png">
+    <script src="https://kit.fontawesome.com/7310d7edd5.js" crossorigin="anonymous"></script>
+</head>
+<body style="background-image: url(img/login2.jpg);">
+    <div class="modal-dialog text-center">
+      <div class="col-sm-9 main-section">
+        <div class="modal-content">
+          
+          <div class="col-12 user-img">
+            <img src="img/logo.png">
+          </div>
+
+          <div class="col-12 form-input">
+            <form method="POST">
+              <div class="form-group">
+                <input id="inptKorisnik" type="korsinickoIme" class="form-control" placeholder="Korisničko ime">
+              </div>
+              <div class="form-group">
+                <input id="inptLozinka" type="password" class="form-control" placeholder="Lozinka">
+              </div>
+              <button type="button" onclick="Prijava()" class="btn btn-success btnPrijava">Prijavi se</button>
+            </form>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+
+  <script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+  <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+  <script src="js/firebase_auth.js"></script>
+  <script src="js/skladiste.js"></script> 
+</body>
+</html>

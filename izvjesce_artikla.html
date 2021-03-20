@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Skladiste građevinskog materijala</title>
+    <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.css">
+	<meta name="author" content="Đuro Belačić">
+    <link rel="stylesheet" href="css/styleIzvjesce.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Under_construction_icon-yellow.svg/1200px-Under_construction_icon-yellow.svg.png">
+    <script src="https://kit.fontawesome.com/7310d7edd5.js" crossorigin="anonymous"></script>
+</head>
+<body onload="DodajOpciju(), SakrijTablicu()">
+	<div class="container-fluid">
+		<header>
+		    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container">
+			  	<a class="navbar-brand" href="#"></a>
+			  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="	#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    		<span class="navbar-toggler-icon"></span>
+			 		 </button>
+			 		 <div class="col-auto"> 
+			  			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    			<ul class="navbar-nav mr-auto">
+			    				<li> <button type="button" onclick="Odjava()" id="btnOdjava2" class="btn btn-success">Odjava</button> </li>
+			      				<li class="nav-item"> <a onclick="UcitajPocetnu()" class="nav-link" > Početno stanje </a> </li>
+			      				<li class="nav-item active"> <a onclick="UcitajUrlIzvjesce()" class="nav-link" >Izvješće artikla</a> </li>
+			                 	<li class="nav-item"> <a onclick="UcitajUrlIzdatnice()" class="nav-link" >Kreiranje izdatnice</a></li>
+			                 	<li class="nav-item"> <a onclick="UcitajUrlPrimke()" class="nav-link" >Kreiranje primke </a></li>
+			               </ul>
+			          		<form class="form-inline my-2 my-lg-0">
+			           			<input id="search" onkeyup="Search()" class="form-control mr-sm-2" type="search" placeholder="Traži" aria-label="Search">
+			          		</form>
+			         	</div>
+			         </div>	
+			    </div>
+			</nav>
+		</header>
+		<br>
+		<div>
+		<form>
+		<div class="input-group mb-3">
+  			<select class="custom-select" id="odaberiArtikl">
+    			<option>Izaberi artikl...</option>
+  			</select>
+  			<button onclick="ArtiklFunction(), PrikaziTablicu()" type="button" class="btn btn-primary" data-dismiss="modal" id="btnIzvjesceDodaj"> Dodaj</button>
+  			<button onclick="ObrisiRedoveIzvjesce(), SakrijTablicu()" type="button" class="btn btn-primary" data-dismiss="modal" id="refresh-btn2"> Osvježi</button>
+  			<button onclick="createPDF()" type="button" class="btn btn-primary" data-dismiss="modal" id="btnPrint"> Izvezi podatke </button>
+		</div>
+		</form>	
+		</div>
+		<br>	
+		<div id="tablica-container">
+				<table id="tablica-izvjesce" class="table table-dark">
+					<thead>
+						<tr>
+							<th>Naziv Artikla</th>
+							<th>Početno stanje</th>
+							<th>Datum Dokumenta <button id="sortDatum" type="button" onclick="sortByDate()" class="btn btn-primary btnSort"><span class="fa fa-sort-up"/> </button> </th>
+							<th>Tip dokumenta</th>
+							<th>Radnik</th>
+							<th>Količina ulaz</th>
+							<th>Iznos ulaz</th>
+							<th>Količina izlaz</th>
+							<th>Iznos izlaz</th>
+							<th>Obriši</th>
+							<th>Uredi</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+					</table>
+		    </div>
+	    </div>
+    </div>
+</div>
+
+<div id="urediIzvjescePrimka" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:black">Uredi</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="inptSifraArtikla">Šifra artikla</label>
+						<input type="number" class="form-control" id="inptSifraArtikla" min="0" onKeyPress="if(this.value.length==4) return false;">
+					</div>
+				<div class="form-group">
+					<label for="inptKolicina">Količina ulaz</label>
+					<input type="number" name=""class="form-control" id="inptKolicina" min="0" onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button id="btnUrediStanjePrimka" type="button" class="btn btn-success" data-dismiss="modal">Dodaj</button>
+					<button id="btnIzadiPrimka" type="button" class="btn btn-danger" datadismiss="modal">Odustani</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="urediIzvjesceIzdatnica" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:black">Uredi</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="inptSifraArtikla">Šifra artikla</label>
+						<input type="number" class="form-control" id="inptSifraArtikla2" min="0" onKeyPress="if(this.value.length==4) return false;">
+					</div>
+				<div class="form-group">
+					<label for="inptKolicina">Količina izlaz</label>
+					<input type="number" name=""class="form-control" id="inptKolicina2" min="0" onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button id="btnUrediStanjeIzdatnica" type="button" class="btn btn-success" data-dismiss="modal">Dodaj</button>
+					<button id="btnIzadiIzdatnica" type="button" class="btn btn-danger" datadismiss="modal">Odustani</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="urediIzvjescePocetna" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:black">Uredi</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="inptSifraArtikla">Šifra artikla</label>
+						<input type="number" class="form-control" id="inptSifraArtikla3"  onKeyPress="if(this.value.length==4) return false;">
+					</div>
+				<div class="form-group">
+					<label for="inptKolicina">Početno stanje</label>
+					<input type="number" name=""class="form-control" id="inptKolicina3" min="0"  onKeyPress="if(this.value.length==5) return false;"></input>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button id="btnUrediStanjePocetna" type="button" class="btn btn-success" data-dismiss="modal">Dodaj</button>
+					<button id="btnIzadiPocetna" type="button" class="btn btn-danger" datadismiss="modal">Odustani</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p id="footer"> Copyright &copy; Đuro Belačić &copy; VSMTI gradnja d.o.o.</p>
+	</footer>
+	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+	<script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+	<script src="js/firebase_auth.js"></script>
+	<script src="js/skladiste.js"></script>	
+</body>
+</html>
